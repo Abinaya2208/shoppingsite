@@ -1,0 +1,39 @@
+<div>
+  <div class="invoice" #invoice>
+      <div class="header">
+        <h1>Invoice</h1>
+        <p>Invoice Number: #12345</p>
+        <p>Date: {{ currentDate | date:'longDate' }}</p>
+      </div>
+        <div class="bill-items">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of cardList">
+                <td>{{ item.itemName }}</td>
+                <td>{{ item.count }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.count * item.price }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="total">
+            <p>Subtotal: {{subTotal}}</p>
+            <p>Tax (10%): {{tax}}</p>
+            <p>Total Amount: {{ total}}</p>
+          </div>
+        </div>
+  </div>
+  <div>
+    <div class="flexStyle">
+      <button mat-raised-button color="primary" (click) = 'generatePDF()'>Print Bill</button>
+    </div>
+  </div>
+</div>

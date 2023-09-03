@@ -1,0 +1,22 @@
+<div class="alignItem">
+
+    <div class="row">
+        <div *ngFor ="let item of itemList; let i=index">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <mat-card>
+                    <mat-card-header>
+                      <mat-card-title>{{item.itemName}}</mat-card-title>
+                      <mat-card-subtitle>{{item.itemName}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image [src]=item.imageUrl alt="Photo of a Shiba Inu" class="cardStyle">
+                    <mat-card-content class="counAlign">$ {{item.price}}</mat-card-content>
+                    <mat-card-actions>
+                      <button mat-raised-button color="primary" class="btnAlign" (click)="updateItem('add',i)">Add</button>  
+                      <button mat-raised-button color="primary"  class="btnAlign" (click)="updateItem('remove',i)">Remove</button>
+                      <div class="counAlign"> {{item.count}}</div>
+                    </mat-card-actions>
+                  </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
